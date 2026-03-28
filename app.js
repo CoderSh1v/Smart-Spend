@@ -3,6 +3,7 @@ import { auth } from "./routes/authRouter.js";
 import { errorhandler } from "./middleware/errorhandler.js";
 import { expense } from "./routes/expenseRouter.js";
 import { budget } from "./routes/budget.route.js";
+import { analytics } from "./routes/analytics.route.js";
 import cors from "cors"
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true })); // for form data
 app.use("/auth",auth)
 app.use("/expense",expense)
 app.use("/budget",budget)
+app.use("/analytics",analytics)
 
 
 app.use(errorhandler)

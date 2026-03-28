@@ -1,5 +1,4 @@
 import express from "express"
-import { categoryTotal, monthlySpend } from "../controllers/analytics.controller.js";
 import { jwtAuth } from "../middleware/authMiddleware.js";
 
 const budget = express.Router();
