@@ -1,12 +1,12 @@
 import express from "express"
 import { jwtAuth } from "../middleware/authMiddleware.js";
-
+import { addBudget } from "../controllers/budget.controller.js";
 const budget = express.Router();
 
 budget.use(jwtAuth);
 
-// budget.get("/",);
+budget.post("/",addBudget);
 
-// budget.post("/",);
+// budget.get("/",);
 
 export {budget}
