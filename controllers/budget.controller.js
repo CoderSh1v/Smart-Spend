@@ -26,7 +26,21 @@ export const getBudget = async (req, res) => {
     res.status(200).json({
         success :"true",
         budget : budgetData.budget,
-        month : budgetData.period.month
+        month : budgetData.period.month,
+        budget_Id : budgetData._id
     })
 }
 
+export const updateBudget = async(req,res)=>{
+    if(!req.params.id){
+        res.status(400).json({
+            message : "budget Id is required to be updated"
+        })
+    }
+    const updatedUser = await budgetSchema.findByIdAndUpdate(req.params.id,{budget : req.body.updatedBudget},{returnDocument : 'after'})
+
+    res.status(200).json({
+        message : "user updated",
+        updatedUser
+    })
+}
