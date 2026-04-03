@@ -2,11 +2,16 @@ import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-    limit: { type: Number, required: true },
-    month: { type: String, required: true }
-}, {
-    timestamps: { createdAt: true, updatedAt: false }
-})
+    budget: { type: Number, required: true },
+    period: {
+        month: Number,
+        year: Number
+    }
+}, { timestamps: true })
 
+schema.index(
+    { userId: 1, "period.month": 1, "period.year": 1 },
+    { unique: true }
+);
 
-export const budget = mongoose.model("budgetSchema", schema)
+export const budgetSchema = mongoose.model("budgetSchema", schema)
