@@ -1,6 +1,5 @@
 import { budgetSchema } from "../models/budget.schema.js"
 import mongoose from "mongoose";
-import { monthlySpend } from "../services/monthlySpend.js";
 
 const date = new Date();
 

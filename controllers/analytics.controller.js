@@ -1,4 +1,4 @@
-import { monthlySpend } from "../services/monthlyspend.js";
+import { monthlySpend } from "../services/monthlySpend.js";
 import { categoryTotal } from "../services/categorySpend.js";
 
 const predict = async (data) => {
