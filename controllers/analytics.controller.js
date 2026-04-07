@@ -11,7 +11,7 @@ const predict = async (data) => {
 }
 
 export const getall = async (req, res) => {
-    if(typeof(req.body.month)!=="number"){
+    if(typeof(req.query.month)!=="number"){
         return res.status(400).json({
             message: "month is required in number"
         })
@@ -20,7 +20,7 @@ export const getall = async (req, res) => {
     const monthWiseData = await monthlySpend(req.user.userId);
     const categoryWiseData = await categoryTotal(req.user.userId);
     const prediction = await predict(monthWiseData)
-    const budgetData = await  budgetStatus(req.user.userId,req.body.month)
+    const budgetData = await  budgetStatus(req.user.userId,req.query.month)
     res.status(200).json({
         prediction,
         budgetData,
