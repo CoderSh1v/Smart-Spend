@@ -17,10 +17,11 @@ export const addBudget = async (req, res) => {
 }
 
 export const getBudget = async (req, res) => {
-    if (!req.query.month || typeof(req.query.month) != "number" ) {
+    const month = Number(req.query.month)
+    if (!month || typeof(month) != "number" ) {
         return res.status(400).json({ message: "Month is required and in number format" })
     }
-    const budgetData = await latestBudget(req.user.userId,req.query.month)
+    const budgetData = await latestBudget(req.user.userId,month)
     
     res.status(200).json({
         success :"true",
