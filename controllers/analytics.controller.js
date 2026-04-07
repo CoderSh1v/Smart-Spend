@@ -11,7 +11,7 @@ const predict = async (data) => {
 }
 
 export const getall = async (req, res) => {
-    if(typeof(req.query.month)!=="number"){
+    if(typeof(req.query.month)!="number"){
         return res.status(400).json({
             message: "month is required in number"
         })
